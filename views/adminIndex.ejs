@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="signUpBG">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> The Competition Hub</a></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><span class="glyphicon glyphicon-plus"></span> Add Competition</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><small>Logged In As <%=name%></small></a></li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add A Competition</h4>
+          </div>
+          
+          <div class="container">
+            <form method="POST" action="/competitions/new">
+              <div class="form-group">
+                <h1></h1>
+                <label for="name">Competition Name</label>
+                <input name="competition[name]" type="text" class="form-control" id="name" placeholder="Enter Competition Name"required>
+              </div>
+              
+              <div class="form-group">
+                <label for="category">Category</label>
+                <select name="competition[category]" required class="form-control" id="category">
+                  <option disabled selected>Select Category</option>
+                  <option>Art</option>
+                  <option>Innovation</option>
+                  <option>Robotics</option>
+                  <option>Speaking</option>
+                  <option>Sports</option>
+                </select>
+              </div>
+              
+              <label>Grades</label>
+              
+              <br>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade1" value="true">
+                <label class="form-check-label">1</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade2" value="true">
+                <label class="form-check-label">2</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade3" value="true">
+                <label class="form-check-label">3</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade4" value="true">
+                <label class="form-check-label">4</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade5" value="true">
+                <label class="form-check-label">5</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade6" value="true">
+                <label class="form-check-label">6</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade7" value="true">
+                <label class="form-check-label">7</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade8" value="true">
+                <label class="form-check-label">8</label>
+              </div>
+              
+              <br>
+                            
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade9" value="true">
+                <label class="form-check-label">9</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade10" value="true">
+                <label class="form-check-label">10</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade11" value="true">
+                <label class="form-check-label">11</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade12" value="true">
+                <label class="form-check-label">12</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade13" value="true">
+                <label class="form-check-label">IB1</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="grade14" value="true">
+                <label class="form-check-label">IB2</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="All" value="true">
+                <label class="form-check-label">All</label>
+              </div>
+              
+              <br>
+              
+              <label>Houses</label>
+              <!--<div class="form-group">-->
+              <!--  <label for="houses">Houses</label>-->
+              <!--  <select name="competition[houses]" multiple class="form-control" id="houses">-->
+              <!--    <option disabled selected>Press and hold Ctrl to select multiple</option>-->
+              <!--    <option value="Aquila">Aquila</option>-->
+              <!--    <option value="Cygnus">Cygnus</option>-->
+              <!--    <option value="Orion">Orion</option>-->
+              <!--    <option value="Pegasus">Pegasus</option>-->
+              <!--  </select>-->
+              <!--</div>-->
+              
+              <br>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Aquila" value="true">
+                <label class="form-check-label">Aquila</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Cygnus" value="true">
+                <label class="form-check-label">Cygnus</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Orion" value="true">
+                <label class="form-check-label">Orion</label>
+              </div>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="Pegasus" value="true">
+                <label class="form-check-label">Pegasus</label>
+              </div>
+              
+              <br>
+              
+              <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="competition[description]" class="form-control" rows="5" id="description" placeholder="Enter a description of the competition and any additional details needed here."></textarea>
+              </div>
+              
+              <button type="submit" id="modalAdd" class="btn btn-dark">Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container">
+      <% competitions.forEach(function(competition, index) { %>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 id="Name"><span title="View Registrations"><a id="competitionName" href ="/competitions/<%=competition._id%>/registrations"><%=competition.name%></a></span></h2>
+            </div>
+            <div class="panel-body">
+              
+              <h4><span class="glyphicon glyphicon-list-alt"></span> <b>Description: </b> </h4>
+              <h5><%=competition.description%></h5>
+              <hr>
+              
+              <h4><span class="glyphicon glyphicon-info-sign"></span> <b>Info:</b> </h4>
+              <h5><b>Category:</b> <%=competition.category%></h5>
+              <h5><b>Open To Grades:</b> <%=competition.grades%></h5>
+              <h5><b>Open To Houses:</b> <%=competition.houses%></h5>
+              <h5><b>Total Number Of Registrations:</b> <%=competition.registrations.length%></h5>
+              <h5><b>Added On:</b> <%=competition.postedOn%></h5>
+              
+              <hr>
+              
+              <!--<a href="/edit/<%=competition._id%>">Edit Competition</a>-->
+              <!--<h4><b>Actions:</b></h4>-->
+              
+              <form method="POST" action="/competitions/<%=competition._id%>/registrations/toggle?_method=PUT">
+                <% if(competition.registrationOpen) { %>
+                <button class="btn adminIndexButton" type="submit"><span class="glyphicon glyphicon-remove-sign"></span> Close Registration</button>
+                <% } %>
+                
+                <% if(!competition.registrationOpen) { %>
+                  <button class="btn adminIndexButton" type="submit"><span class="glyphicon glyphicon-ok-sign"></span> Open Registration</button>
+                <% } %>
+              </form>
+              
+              <button data-toggle="modal" data-target="#myModal<%=index%>" href="#myModal<%=index%>" class="btn adminIndexButton">
+                <span class="glyphicon glyphicon-envelope"></span> Contact All Registrees
+                </button>
+              
+              <!-- Message Modal -->
+              <div id="myModal<%=index%>" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Message Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Enter The Message</h4>
+                    </div>
+                    
+                    <div class="container">
+                      <form method="POST" action="/competitions/<%=competition._id%>/registrations/contact">
+                        <div class="form-group">
+                          <textarea 
+                            name="message" placeholder="This message will be sent as an email to all the registrees of this competition." 
+                            class="form-control" rows="5" id="messageTextBox">
+                          </textarea>
+                        </div>
+                        <button type="submit" id="modalAdd" class="btn btn-dark">Send</button>
+                      </form>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              
+              <form method="GET" action="/competitions/<%=competition._id%>/registrations/file">
+                <button class="btn adminIndexButton" type="submit"><span class="glyphicon glyphicon-download-alt"></span> Download Registrant List</button>
+              </form>
+              
+              <form method="POST" action="/competitions/<%= competition._id %>?_method=DELETE">
+                <button class="btn adminIndexButton" type="submit"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+              </form>
+            </div>
+          </div>
+      <% }); %>
+    </div>
+    
+    <!-- Bootstrap -->
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,162 @@
+/*Landing Page*/
+
+body, html {
+    height: 100%;
+}
+
+#landingPageBody {
+    background-color: black;
+}
+
+#backgroundImage {
+    /* The image used */
+    background-image: url("/CompetitionHubBG.jpg");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 991px) {
+    #backgroundImage { 
+        background-image: url('/SignUpBG.png');
+        
+         /*Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+#loginFormContainer {
+    margin-top: 45%;
+}
+
+#signUpLinks {
+    width: 100%;
+    text-align: center;
+}
+
+#loginFormContainer a {
+    color: white;
+}
+
+#invalidCredentialsMessage {
+    color: white;
+}
+
+/* User Sign Up*/
+
+#signUpBG {
+    /* The image used */
+    background-image: url("/SignUpBG.png");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#signUpBack {
+    color: black;
+}
+
+/* Admin Index */
+
+.modal-content .form-control {
+  width:50%;
+}
+
+#modalAdd {
+    margin-bottom: 1%;
+}
+
+#logout {
+    color: white;
+}
+
+#competitionName {
+    color: black;
+}
+
+.adminIndexButton {
+    background-color: black;
+    color: white;
+    margin-top: 1%;
+}
+
+#messageTextBox {
+    margin-top: 1%;
+}
+
+/*Registration Index*/
+
+#registrationIndexBack {
+    color: black;
+}
+
+/* User Index */
+
+.dropdownSearch {
+   color: black;
+}
+
+.dropdownMenu {
+    color: black;
+}
+
+.dropdownLine {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: black;
+    color: white;
+}
+
+.input-group {
+    display: inline-block;
+    margin-top: 0.5%;
+    width: 20%;
+    height: 30%;
+    border-radius: 5px;
+}
+
+#searchBar {
+    width: 25%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+#searchBar:focus {
+    width: 90%;
+}
+
+.navbar {
+    margin: 0;
+}
+
+#searchbarDiv {
+    margin-top: 1%;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+#searchBar {
+    display: inline-block;
+    border-radius: 5px;
+    height: 35px;
+}
+
+/*.form-check-label {*/
+/*    font-weight: normal;*/
+/*}*/
+
+.form-check-inline {
+    margin-left: 1%;
+    display: inline;
+}

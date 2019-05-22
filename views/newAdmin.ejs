@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="signUpBG">
+      <div class="container">
+        <div class="page-header">
+          <a id="signUpBack" href="/"><h4>Back</h4></a>
+          <h1>Sign Up As An Admin</h1>
+          <h4>Once signed up, you can post competitions or events and track registrations from students</h4>
+        </div>
+        <form method="POST" action="/users/newAdmin">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input name="name" type="text" class="form-control" id="name" placeholder="Admins will see this name when you register." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input name="username" type="email" class="form-control" id="email" placeholder="This email will be used to contact you." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input name="password" type="password" class="form-control" id="password" placeholder="At the moment, this cannot be changed once set." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="adminCode">Admin Code</label>
+            <input name="adminCode" type="password" class="form-control" id="adminCode" placeholder="This code should be provided by the school." required>
+          </div>
+          
+            <% if(codeMessage!=undefined) { %>
+              <h5><%= codeMessage %></h5> 
+            <% } %>
+            <% if(userExistsMessage!=undefined) { %>
+              <h5><%= userExistsMessage %></h5> 
+            <% } %>
+    
+          <button type="submit" class="btn btn-dark">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <!--<form method="POST" action="/users/newAdmin">-->
+    <!--  <input name="username" type="email" placeholder="Enter Email" required>-->
+    <!--  <input name="password" type="password" placeholder="Enter Password" required>-->
+    <!--  <input name="name" type="text" placeholder="Enter Name" required>-->
+    <!--  <input name="adminCode" type="password" placeholder="Enter Admin Code" required>-->
+    <!--  <button type="submit">Register</button>-->
+    <!--  <% if(codeMessage!=undefined) { %>-->
+    <!--    <%= codeMessage %> -->
+    <!--  <% } %>-->
+    <!--  <% if(userExistsMessage!=undefined) { %>-->
+    <!--    <%= userExistsMessage %> -->
+    <!--  <% } %>-->
+    <!--</form>-->
+      <!-- Bootstrap -->
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

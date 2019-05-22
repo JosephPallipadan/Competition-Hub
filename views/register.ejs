@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/index">Back</a>
+    <h2>Registering For <%=competition_name%></h2>
+    
+    <form method="POST" action="/competitions/<%=id%>/register?_method=PUT">
+      <input name="registration[name]" type="text" placeholder="Enter Name" value="<%=user_name%>" required>
+      <input name="registration[email]" type="email" placeholder="Enter Email" value="<%=email%>" required>
+      <input name="registration[grade]" type="text" placeholder="Enter Grade" value="<%=grade%>" required>
+      <textarea name="registration[details]" rows="3" placeholder="Enter additional details if required, or questions, if any"></textarea>
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  
+  <body id="landingPageBody">
+    <div id="backgroundImage">
+      <div class="container">
+        <div id="loginFormContainer">
+          <form method="POST" action="/login">
+            <div class="form-group">
+              <input name="username" type="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <input name="password" type="password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-dark">Login</button>
+            <% if(message!=undefined) { %>
+              <small id="invalidCredentialsMessage"> <%=    message %>. Please Try Again.</small> 
+            <% } %>
+          </form>
+          <hr>
+          <div id="signUpLinks">
+            <a href="/users/newUser">Sign Up As Student </a> |
+            <a href="/users/newAdmin">Sign Up As Admin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <!-- Bootstrap -->
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

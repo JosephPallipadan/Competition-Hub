@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="signUpBG">
+      <div class="container">
+        <div class="page-header">
+          <a id="signUpBack" href="/"><h4>Back</h4></a>
+          <h1>Sign Up As A Student</h1>
+          <h4>Once signed up, you gain access to a hub for all competition and events in school!</h4>
+        </div>
+        <form method="POST" action="/users/newUser">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input name="name" type="text" class="form-control" id="name" placeholder="Admins will see this name when you register." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input name="username" type="email" class="form-control" id="email" placeholder="This email will be used to contact you." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input name="password" type="password" class="form-control" id="password" placeholder="At the moment, this cannot be changed once set." required>
+          </div>
+          
+          <div class="form-group">
+            <label for="grade">Grade</label>
+             <select name="grade" required class="form-control" id="grade" required>
+                <option value="">Select Grade</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="IB1">IB1</option>
+                <option value="IB2">IB2</option>
+              </select>
+          </div>
+          
+          <div class="form-group">
+              <label for="house">House</label>
+             <select name="house" required class="form-control" id="house" required>
+                <option value="">Select House</option>
+                <option value="Aquila">Aquila</option>
+                <option value="Cygnus">Cygnus</option>
+                <option value="Orion">Orion</option>
+                <option value="Pegasus">Pegasus</option>
+              </select>
+          </div>
+          <% if(message!=undefined) { %>
+            <%= message %> 
+          <% } %>
+          <button type="submit" class="btn btn-dark">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    
+    <!--<form method="POST" action="/users/newUser">-->
+    <!--  <input name="username" type="email" placeholder="Enter Email" required>-->
+    <!--  <input name="password" type="password" placeholder="Enter Password" required>-->
+    <!--  <input name="name" type="text" placeholder="Enter Name" required>-->
+      
+    <!--  <select name="grade" required>-->
+    <!--    <option disabled selected>Select Grade</option>-->
+    <!--    <option value="1">1</option>-->
+    <!--    <option value="2">2</option>-->
+    <!--    <option value="3">3</option>-->
+    <!--    <option value="4">4</option>-->
+    <!--    <option value="5">5</option>-->
+    <!--    <option value="6">6</option>-->
+    <!--    <option value="7">7</option>-->
+    <!--    <option value="8">8</option>-->
+    <!--    <option value="9">9</option>-->
+    <!--    <option value="10">10</option>-->
+    <!--    <option value="11">11</option>-->
+    <!--    <option value="12">12</option>-->
+    <!--    <option value="IB1">IB1</option>-->
+    <!--    <option value="IB2">IB2</option>-->
+    <!--  </select>-->
+      
+    <!--  <select name="house" required>-->
+    <!--    <option disabled selected>Select House</option>-->
+    <!--    <option value="Aquila">Aquila</option>-->
+    <!--    <option value="Cygnus">Cygnus</option>-->
+    <!--    <option value="Orion">Orion</option>-->
+    <!--    <option value="Pegasus">Pegasus</option>-->
+    <!--  </select>-->
+      
+    <!--  <button type="submit">Register</button>-->
+    <!--</form>-->
+  
+    <!-- Bootstrap -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  </body>
+</html>

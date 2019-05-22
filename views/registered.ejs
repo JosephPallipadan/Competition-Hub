@@ -1,0 +1,92 @@
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="signUpBG">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> The Competition Hub</a></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/index">All Competitions</a></li>
+          <li><a href="/index/registered"><u>Registered Competitions</u></a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Filter By Category <span class="glyphicon glyphicon-triangle-bottom"></span>
+            </a>
+            <div class="dropdown-menu">
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#">All</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#">Art</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#">Innovation</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#">Robotics</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#">Speaking</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#">Sports</a>
+              <hr class="dropdownLine">
+            </div>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><small>Logged In As <%=name%></small></a></li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <br>
+    <div class="container">
+      <% competitions.forEach(function(competition, index) { %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="Name"><%=competition.name%></a></span></h2>
+          </div>
+          <div class="panel-body">
+            
+            <h4><span class="glyphicon glyphicon-list-alt"></span> <b>Description: </b> </h4>
+            <h5><%=competition.description%></h5>
+            <hr>
+            
+            <h4><span class="glyphicon glyphicon-info-sign"></span> <b>Info:</b> </h4>
+            <h5><b>Category:</b> <%=competition.category%></h5>
+            <h5><b>Contact Admin At:</b> <%=competition.postedBy%></h5>
+            <h5><b>Total Number Of Registrations:</b> <%=competition.registrations.length%></h5>
+            <h5><b>Added On:</b> <%=competition.postedOn%></h5>
+            
+            <hr>
+            
+            <form method="POST" action="/competitions/<%=competition._id%>/deregister?_method=PUT">
+              <button class="btn adminIndexButton" type="submit"><span class="glyphicon glyphicon-pencil"></span> Deregister</button>
+            </form>
+          </div>
+        </div>
+    <% }); %>
+    </div>
+    <!--<% competitions.forEach(function(item) { %>-->
+    <!--    <div>-->
+    <!--      <h4><%=item.name%></h2>-->
+    <!--      <h6><%=item.description%></h6>-->
+    <!--<form method="POST" action="/competitions/<%=item._id%>/deregister?_method=PUT">-->
+    <!--    <button type="submit">Deregister</button>-->
+    <!--</form>-->
+    <!--      <p id="adminCategory">Category: <%=item.category%></p>-->
+    <!--    </div>-->
+    <!--    <hr>-->
+    <!--<% }); %>-->
+    
+    <!-- Bootstrap -->
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="signUpBG">
+    <a href="/index/All">Back</a>
+    <span>Add Competition</span>
+    <form method="POST" action="/competitions/new">
+      
+      <div class="form-group">
+        <label for="name">Competition Name</label>
+        <input name="competition[name]" type="text" class="form-control" id="name" required>
+      </div>
+      
+      <select name="competition[category]" required>
+        <option disabled selected>Select Category</option>
+        <option>Art</option>
+        <option>Innovation</option>
+        <option>Robotics</option>
+        <option>Speaking</option>
+        <option>Sports</option>
+      </select>
+      
+      <div class="form-group">
+        <label for="grades">Grades</label>
+        <select name="competition[grades]" multiple class="form-control" id="grades">
+          <option disabled selected>Press and hold Ctrl to select multiple</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="IB1">IB1</option>
+          <option value="IB2">IB2</option>
+        </select>
+      </div>
+      
+      <!--<select name="competition[grades]" multiple required>-->
+      <!--  <option disabled selected>Select Grades</option>-->
+      <!--  <option value="1">1</option>-->
+      <!--  <option value="2">2</option>-->
+      <!--  <option value="3">3</option>-->
+      <!--  <option value="4">4</option>-->
+      <!--  <option value="5">5</option>-->
+      <!--  <option value="6">6</option>-->
+      <!--  <option value="7">7</option>-->
+      <!--  <option value="8">8</option>-->
+      <!--  <option value="9">9</option>-->
+      <!--  <option value="10">10</option>-->
+      <!--  <option value="11">11</option>-->
+      <!--  <option value="12">12</option>-->
+      <!--  <option value="IB1">IB1</option>-->
+      <!--  <option value="IB2">IB2</option>-->
+      <!--</select>-->
+      
+      <select name="competition[houses]" multiple required>
+        <option disabled selected>Select Houses</option>
+        <option value="Aquila">Aquila</option>
+        <option value="Cygnus">Cygnus</option>
+        <option value="Orion">Orion</option>
+        <option value="Pegasus">Pegasus</option>
+      </select>
+      
+      <textarea name="competition[description]" rows="3" placeholder="Enter Competition Description" required></textarea>
+      <button type="submit">Add</button>
+    </form>
+  </body>
+</html>

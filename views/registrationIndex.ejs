@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="signUpBG">
+    
+    <div class="container">
+      <h3 style="text-align: center;"><a id="registrationIndexBack" href="/index">Back</a></h3>
+      <hr>
+      <h3 style="text-align: center;">Viewing Registrations For <%=competition_name%></h3>
+    </div>
+    <hr>
+    
+    <div class="container">
+      <% registrations.forEach(function(item) { %>
+          <div class="panel panel-default">
+            
+            <div class="panel-heading">
+              <h4 id="Name"><%=item.name%></h4>
+            </div>
+            
+            <div class="panel-body">
+              
+              <h5><b>Email: </b><%=item.username%></h5>
+              <h5><b>Grade: </b><%=item.grade%></h5>
+              <h5><b>Details/Questions: </b> <%=item.details%></h5>
+              <h5><b>Registered On: </b> <%=item.time%></h5>
+              
+              <form method="POST" action=<%="/competitions/"+competition_id+"/registrations/delete/"+item.username+"?_method=PUT"%> >
+                <button class="btn adminIndexButton" type="submit"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+              </form>
+            </div>
+          </div>
+      <% }); %>
+    </div>
+    
+  <!-- Bootstrap -->
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

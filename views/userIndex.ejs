@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/universal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body id="signUpBG">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> The Competition Hub</a></a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/index"><u>All Competitions</u></a></li>
+          <li><a href="/index/registered">Registered Competitions</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Filter By Category <span class="glyphicon glyphicon-triangle-bottom"></span>
+            </a>
+            <div class="dropdown-menu">
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#" onclick="categorySearch('All')">All</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#" onclick="categorySearch('Art')">Art</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#" onclick="categorySearch('Innovation')">Innovation</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#" onclick="categorySearch('Robotics')">Robotics</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#" onclick="categorySearch('Speaking')">Speaking</a>
+              <hr class="dropdownLine">
+              <a class="dropdown-item dropdownSearch" href="#" onclick="categorySearch('Sports')">Sports</a>
+              <hr class="dropdownLine">
+            </div>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><small>Logged In As <%=name%></small></a></li>
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="searchbarDiv">
+      <input type="text" id="searchBar" name="search" placeholder="Search By Name">
+      <button class="btn btn-dark" id="searchButton" onclick="search()">Search</button>
+    </div>
+    <div class="container">
+      <% competitions.forEach(function(competition, index) { %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2 id="Name" class="CompetitionName"><%=competition.name%></h2>
+          </div>
+          <div class="panel-body">
+            
+            <h4><span class="glyphicon glyphicon-list-alt"></span> <b>Description: </b> </h4>
+            <h5><%=competition.description%></h5>
+            <hr>
+            
+            <h4><span class="glyphicon glyphicon-info-sign"></span> <b>Info:</b> </h4>
+            <h5><b>Category:</b> <span class="category"><%=competition.category%></span></h5>
+            <h5><b>Contact Admin At:</b> <%=competition.postedBy%></h5>
+            <h5><b>Total Number Of Registrations:</b> <%=competition.registrations.length%></h5>
+            <h5><b>Added On:</b> <%=competition.postedOn%></h5>
+            
+            <hr>
+            
+            <button data-toggle="modal" data-target="#myModal<%=index%>" href="#myModal<%=index%>" class="btn adminIndexButton">
+              <span class="glyphicon glyphicon-pencil"></span> Register
+            </button>
+            
+            <!-- Register Modal -->
+            <div id="myModal<%=index%>" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Message Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Details</h4>
+                  </div>
+                  
+                  <div class="container">
+                    <form method="POST" action="/competitions/<%=competition._id%>/register?_method=PUT">
+                      <div class="form-group">
+                        <textarea name="details" 
+                                  placeholder="Enter any extra details requested or any questions you have for the admin." class="form-control" 
+                                  rows="5" id="messageTextBox">
+                        </textarea>
+                      </div>
+                      <input name="time" style="display: none;" class="registrationTime">
+                      <button type="submit" onclick="setTime()" id="modalAdd" class="btn btn-dark">Register</button>
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% }); %>
+    </div>
+    
+    <!-- Search Code -->
+    <script>
+      function search() {
+        var keyWord = document.getElementById("searchBar").value;
+        var competitions = document.getElementsByClassName("CompetitionName");
+        
+        for(var x=0; x<competitions.length; x++) {
+            competitions[x].parentElement.parentElement.style.display= "block";
+        }
+        
+        for(var x=0; x<competitions.length; x++) {
+          if(competitions[x].innerText.toLowerCase().indexOf(keyWord.toLowerCase())==-1) {
+            competitions[x].parentElement.parentElement.style.display="none";
+          }
+        }
+      }
+      
+      function categorySearch(category) {
+        var categories = document.getElementsByClassName("category");
+        for(var x=0; x<categories.length; x++) {
+            categories[x].parentElement.parentElement.parentElement.style.display= "block";
+        }
+        if(category!="All") {
+          for(var x=0; x<categories.length; x++) {
+            if(categories[x].innerText != category) {
+              categories[x].parentElement.parentElement.parentElement.style.display= "none";
+            }
+          }
+        }
+      }
+      
+      function setTime() {
+        console.log("Entered Function");
+        var timeTextBoxes = document.getElementsByClassName("registrationTime");
+        for(var x = 0; x<timeTextBoxes.length; x++) {
+          console.log(timeTextBoxes[x].parentElement.parentElement.parentElement.parentElement.parentElement.id);
+          timeTextBoxes[x].value = Date()+"";
+        }
+      }
+      
+    </script>
+    
+    <!-- Bootstrap -->
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>
